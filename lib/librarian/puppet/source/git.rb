@@ -37,6 +37,11 @@ module Librarian
             raise Error, "Could not checkout #{uri}#{" at #{sha}" unless sha.nil?}: #{e}"
           end
 
+          if environment.config_db["install.strip-dot-git"] == "1"
+            dot_git = filesystem_path.join(".git")
+            dot_git.rmtree if dot_git.directory?
+          end
+
           cache_in_vendor(repository.path) if environment.vendor?
         end
 

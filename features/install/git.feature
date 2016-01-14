@@ -197,3 +197,12 @@ Feature: cli/install/git
     When I run `librarian-puppet install`
     Then the exit status should be 0
     And the output should contain "Dependency 'puppetlabs-stdlib' duplicated for module, merging"
+
+  Scenario: Omit the .git directory when passed --strip-dot-git
+    Given a file named "Puppetfile" with:
+    """
+    mod 'puppetlabs-stdlib',
+      :git => 'git://github.com/puppetlabs/puppetlabs-stdlib.git'
+    """
+    When I run `librarian-puppet install --strip-dot-git`
+    Then a directory "modules/stdlib/.git" should not exist
