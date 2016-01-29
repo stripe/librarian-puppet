@@ -1,3 +1,9 @@
+# !
+
+Take note: this repo has been forked from
+[rodjek/librarian-puppet](https://github.com/rodjek/librarian-puppet) for feature development by
+Stripe's Systems team.  The branch `master` should track upstream `master`, and the branch `stripe` should be used as the stable changes from Stripe.
+
 # Librarian-puppet
 
 [![Build Status](https://travis-ci.org/rodjek/librarian-puppet.png?branch=master)](https://travis-ci.org/rodjek/librarian-puppet)
